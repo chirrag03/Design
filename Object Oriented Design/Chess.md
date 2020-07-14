@@ -48,14 +48,18 @@ class Board{
 
     move(player.color, coordStart, coordEnd){
         //Validation
-        if(pieces[startX][startY] == null){
+        Piece srcPiece = pieces[startX][startY]
+        Piece destPiece = pieces[endX][endY]
+        
+        if(srcPiece == null){
             //throw exception
         }
 
-        Piece srcPiece = pieces[startX][startY]
-        Piece destPiece = pieces[endX][endY]
-
-        if(srcPiece.color != player.color && destPiece.color == player.color){
+        if(srcPiece.color != player.color){
+          //throw exception
+        }
+        
+        if(destPiece != null && destPiece.color == player.color){
           //throw exception
         }
 
@@ -95,5 +99,17 @@ class GameController{
     }
 }
 
-
 ```  
+
+**Follow Up:**  
+- How to reincarnate a piece…...keep a Map<Color,List<Pieces>> allPieces;
+- Undo option…..Use a stack to store the moves  
+ 
+```java
+class Move{
+   Player player
+   Piece piece
+   Coord coordStart
+   Coord coordEnd
+}
+```
