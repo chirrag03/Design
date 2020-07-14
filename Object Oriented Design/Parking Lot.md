@@ -15,7 +15,7 @@
 > Remove a vehicle from the slot.    
 > Bill on basis of hours and vehicle type.    
 
-**Let's have a look at the data classes:**   
+**Let's have a look at the data classes & business logic classes:**   
 
 ```java
 class Vehicle{
