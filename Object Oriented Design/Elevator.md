@@ -25,6 +25,8 @@ class Lift{
     addStopRequest(int floorToReach){
         
     }
+    
+   //move or some function where the floor and direction of lift are updated....This will also call the elevator callback function
 }
 
 class State{
@@ -66,7 +68,7 @@ class Controller{
           closestIdle = min(upperBound, lowerBound);
 
           
-          If (liftsWithSameDirection == null && closesIdle == null) {
+          if(liftsWithSameDirection == null && closesIdle == null) {
           
             //Second priority -> located down and going down -> find farthest
             liftsByFloorNumbers = DirectionLiftMap.get(Down);
@@ -93,11 +95,9 @@ class Controller{
         
         }
         
-        addStopRequest(Lift, int floorToReach){
-        
-        }
     }
 
+}
 
    
 
