@@ -25,7 +25,6 @@ class Lift{
 
 class State{
     int currentFloor;
-    TreeSet floorsToReach;
     Direction direction;
 }
 
