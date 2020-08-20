@@ -21,6 +21,10 @@ class Lift{
 
     PriorityQueue<Integer> minHeap = nextStopsForUpDirection;     //Stops above the curr postion of lift
     PriorityQueue<Integer> maxHeap = nextStopsForDownDirection;   //Stops below the curr postion of lift
+    
+    addStopRequest(int floorToReach){
+        
+    }
 }
 
 class State{
@@ -39,7 +43,7 @@ class Request{
 
 class Controller{
 
-    Map<Direction, List<Lift>>DirectionByLift;    // can use TreeMap floorNumber as well
+    Map<Direction, List<Lift>> DirectionLiftMap;    // can use TreeMap floorNumber as well
                                                   // that will stop list iteration.
     Map<Lift, State>LiftByState;
 
@@ -47,43 +51,55 @@ class Controller{
         createLifts(..)       //At 0 floor
     }
 
+    //Assigns a lift to the given request
     assign(Request request){
         int floorToSend = null;
         
         if(Request.floor != 0 && Request.direction==Up)     //Anywhere in Middle to UP
-          liftsByFloorNumbers = StateByLift.get(Up);
-          liftWithsameDirection = lowerBound;
+        
+          //First priority -> located down and going up + Idle elevators -> find closest  
+          liftsByFloorNumbers = DirectionLiftMap.get(UP);
+          liftWithsameDirection = lowerBound;        // logic to find floor : if list -> iterate on the list -> floor which closest and down 
+                                                    //                        if TreeMap -> lowerbound
           
-          liftsByFloorNumbers = StateByLift.get(IDLE);
+          liftsByFloorNumbers = DirectionLiftMap.get(IDLE);
           closestIdle = min(upperBound, lowerBound);
 
+          
           If (liftsWithSameDirection == null && closesIdle == null) {
-          liftsByFloorNumbers = StateByLift.get(Down);
-          liftWithsameDirection = upperBound;
-        }
-        // logic to find floor 
-        // if list -> iterate on the list -> floor which closest and down.
-        // if TreeMap -> lowerbound
-
-        lift.move(this,5);
-        }
-        Else{
+          
+            //Second priority -> located down and going down -> find farthest
+            liftsByFloorNumbers = DirectionLiftMap.get(Down);
+            liftWithOppositeDirection = farthest;
+            
+            //Last -> assign any lift 
+            
+            lift.move(this,5);
+            
+          } else{
         //Down case
+            liftsByFloorNumbers = StateByLift.get(Down);
+            floorToSend = liftsByFloorNumbers.upperBound(request.floorNumber);
 
-        liftsByFloorNumbers = StateByLift.get(Down);
-        floorToSend = liftsByFloorNumbers.upperBound(request.floorNumber);
+            if(floorToSend==null)
+            {
+            liftsByFloorNumbers = StateByLift.get(IDLE);
+            floorToSend = min(upperBound, lowerBound);
+            }
+        }
+        
+        //Updates the DirectionLiftMap...Will be called by lift when changing direction
+        callback(Lift, OldDirection, NewDirection){
+        
+        }
+        
+        addStopRequest(Lift, int floorToReach){
+        
+        }
     }
 
 
-    if(floorToSend==null)
-    {
-    liftsByFloorNumbers = StateByLift.get(IDLE);
-    floorToSend = min(upperBound, lowerBound);
-    }
-
-
-
-
+   
 
 ```  
 
