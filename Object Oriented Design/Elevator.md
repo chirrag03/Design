@@ -55,8 +55,7 @@ class Request{
 
 class Controller{
 
-    Map<Direction, List<Lift>> DirectionLiftMap;    // can use TreeMap floorNumber as well
-                                                   // that will stop list iteration.
+    Map<Direction, List<Lift>> DirectionLiftMap;    
                                                   
     init(){
         createLifts(..)       //At 0 floor
