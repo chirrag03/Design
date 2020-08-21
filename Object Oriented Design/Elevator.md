@@ -30,13 +30,13 @@ class Lift{
         //initiate the move function if the lift is IDLE
     }
     
-   move(){
-      //If the minHeap and maxHeap both become empty then put the lift in IDLE state
-      
-      //Move in the required direction and keep updating the currentFloor and direction
-      
-      //If the lift changes direction then do a callback on the controller
-   }
+    move(){
+       //If the minHeap and maxHeap both become empty then put the lift in IDLE state
+
+       //Move in the required direction and keep updating the currentFloor and direction
+
+       //If the lift changes direction then do a callback on the controller
+    }
 }
 
 class State{
@@ -71,9 +71,7 @@ class Controller{
         
            //First priority -> located down and going up + Idle elevators -> find closest  
            liftsByFloorNumbers = DirectionLiftMap.get(UP);
-           liftWithsameDirection = liftsByFloorNumbers.lowerBound(request.floorNumber);        
-           // logic to find floor : if list -> iterate on the list -> floor which closest and down 
-           //                       if TreeMap -> lowerbound
+           liftWithsameDirection = liftsByFloorNumbers.lowerBound(request.floorNumber); // iterate on list -> find floor which is closest and below request Floor 
 
 
            liftsByFloorNumbers = DirectionLiftMap.get(IDLE);
@@ -111,6 +109,8 @@ class Controller{
 
 **Additional feature:**  
 - Handle capacity and raise alarm
+- Handle out of order lifts .....for this we can keep a list of such lifts in the controller
+
 
 **Notes:**  
 
