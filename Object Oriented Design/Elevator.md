@@ -57,7 +57,7 @@ class Controller{
     assign(Request request){
         int floorToSend = null;
         
-        if(Request.floor != 0 && Request.direction==Up)     //Anywhere in Middle to UP
+        if(Request.floor != 0 && Request.direction==Up){     //Anywhere in Middle to UP
         
            //First priority -> located down and going up + Idle elevators -> find closest  
            liftsByFloorNumbers = DirectionLiftMap.get(UP);
