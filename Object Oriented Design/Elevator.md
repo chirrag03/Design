@@ -29,7 +29,6 @@ class Lift{
         //initiate the move function if the lift is IDLE
     }
     
-   //move or some function where the floor and direction of lift are updated....This will also call the elevator callback function
    move(){
       //If the minHeap and maxHeap both become empty then put the lift in IDLE state
       
