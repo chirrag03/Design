@@ -23,10 +23,37 @@ class Coord{
 class Piece{
     Color color
     Type type
+    PieceBehaviour pieceBehaviour
+    
     isvalidMove(coordStart, coordEnd){
-
+       pieceBehaviour.isvalidMove(coordStart, coordEnd)
+    }
+    
+    setPieceBehaviour(PieceBehaviour b){
+       this.pieceBehaviour = b
     }
 }
+
+class PawnBehaviour implements PieceBehaviour{
+    
+    int[] deltaX = {0}
+    int[] deltaY = {1}
+    
+    isvalidMove(coordStart, coordEnd){
+        //Check if it is possible to reach coordEnd just by adding deltaX[i] and deltaY[i] to coordStart
+    }
+}
+
+class KnightBehaviour implements PieceBehaviour{
+    
+    int[] deltaX = {-2, -1, 1, 2, 2, 1, -1, -2}
+    int[] deltaY = {1, 2, 2, 1, -1, -2, -2, -1}
+    
+    isvalidMove(coordStart, coordEnd){
+        //Check if it is possible to reach coordEnd just by adding deltaX[i] and deltaY[i] to coordStart
+    }
+}
+
 
 class Player{
     String name
@@ -63,7 +90,7 @@ class Board{
           //throw exception
         }
 
-        if(srcPiece.isValidMove(startX, startY, endX, endY)){
+        if(srcPiece.isValidMove(coordStart, coordEnd)){
           //throw exception
         }
 
@@ -89,17 +116,28 @@ class GameController{
           turn = 1
       }
 
-      move(player, startX, startY, endX, endY){
+      move(player, coordStart, coordEnd){
+      
           //Validation that move has been played by correct player
-          if(turn == 1 && player == player1 || turn == 2 && player == player2){
-            board.move(player.color, coordStart, coordEnd)
-          }else{
+          if((turn == 1 && player != player1) || (turn == 2 && player != player2)){
             //Throw Exception
           }
+          
+          //Validation that start and end coord is within board
+          if(!isValidCoord(coordStart) || !isValidCoord(coordEnd)){
+            //Throw Exception
+          }
+          
+          board.move(player.color, coordStart, coordEnd)
     }
 }
 
 ```  
+
+**Notes:**  
+Making use of Strategy Pattern here to define behaviour of a piece. This pattern allows changing the behaviour of a piece at runtime which could be a use case when:  
+If the Pawn reaches the opposite side of the chessboard, it has the unique ability to promote to another chess piece.  
+The pawn can become a Queen, Bishop, Rook, or Knight. There are no restrictions to how many pieces of a given type you can have via promotion.
 
 **Follow Up:**  
 - How to reincarnate a piece…...keep a Map<Color,List<Pieces>> allPieces;
@@ -108,8 +146,9 @@ class GameController{
 ```java
 class Move{
    Player player
-   Piece piece
+   Piece srcPiece
    Coord coordStart
    Coord coordEnd
+   Piece destPiece   //This is captured piece or the opponent's piece replaced by the src piece
 }
 ```
