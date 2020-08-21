@@ -135,9 +135,9 @@ class GameController{
 ```  
 
 **Notes:**  
-Making use of Strategy Pattern here to define behaviour of a piece. This pattern allows changing the behaviour of a piece at runtime which could be a use case when:  
-If the Pawn reaches the opposite side of the chessboard, it has the unique ability to promote to another chess piece.  
-The pawn can become a Queen, Bishop, Rook, or Knight. There are no restrictions to how many pieces of a given type you can have via promotion.
+Making use of **Strategy Pattern** here to define behaviour of a piece. This pattern allows changing the behaviour of a piece at runtime which could be a use case when:  
+*If the Pawn reaches the opposite side of the chessboard, it has the unique ability to promote to another chess piece.  
+The pawn can become a Queen, Bishop, Rook, or Knight. There are no restrictions to how many pieces of a given type you can have via promotion.*
 
 **Follow Up:**  
 - How to reincarnate a piece…...keep a Map<Color,List<Pieces>> allPieces;
