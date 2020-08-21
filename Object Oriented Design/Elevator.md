@@ -10,6 +10,7 @@
 
 > **APIs:**  
 > Assign a lift to a request   
+> Add a stop in a lift
 
 **Let's have a look at the data classes & business logic classes:**   
 
