@@ -18,15 +18,25 @@ class Lift{
     int number;
     int maxCapacity;
     State state;
+    Controller controller;       //to initiate a callback
 
     PriorityQueue<Integer> minHeap = nextStopsForUpDirection;     //Stops above the curr postion of lift
     PriorityQueue<Integer> maxHeap = nextStopsForDownDirection;   //Stops below the curr postion of lift
     
     addStopRequest(int floorToReach){
+        //add the next stop to the required heap
         
+        //initiate the move function if the lift is IDLE
     }
     
    //move or some function where the floor and direction of lift are updated....This will also call the elevator callback function
+   move(){
+      //If the minHeap and maxHeap both become empty then put the lift in IDLE state
+      
+      //Move in the required direction and keep updating the currentFloor and direction
+      
+      //If the lift changes direction then do a callback on the controller
+   }
 }
 
 class State{
@@ -46,9 +56,8 @@ class Request{
 class Controller{
 
     Map<Direction, List<Lift>> DirectionLiftMap;    // can use TreeMap floorNumber as well
-                                                  // that will stop list iteration.
-    Map<Lift, State>LiftByState;
-
+                                                   // that will stop list iteration.
+                                                  
     init(){
         createLifts(..)       //At 0 floor
     }
@@ -57,15 +66,18 @@ class Controller{
     assign(Request request){
         int floorToSend = null;
         
-        if(Request.floor != 0 && Request.direction==Up){     //Anywhere in Middle to UP
+        //Handle Case 1: Anywhere in Middle to Up
+        if(request.floor != 0 && request.direction==Up){    
         
            //First priority -> located down and going up + Idle elevators -> find closest  
            liftsByFloorNumbers = DirectionLiftMap.get(UP);
-           liftWithsameDirection = lowerBound;        // logic to find floor : if list -> iterate on the list -> floor which closest and down 
-                                                     //                        if TreeMap -> lowerbound
+           liftWithsameDirection = liftsByFloorNumbers.lowerBound(request.floorNumber);        
+           // logic to find floor : if list -> iterate on the list -> floor which closest and down 
+           //                       if TreeMap -> lowerbound
+
 
            liftsByFloorNumbers = DirectionLiftMap.get(IDLE);
-           closestIdle = min(upperBound, lowerBound);
+           closestIdle = min(liftsByFloorNumbers.upperBound(request.floorNumber), liftsByFloorNumbers.lowerBound(request.floorNumber));
 
 
            if(liftsWithSameDirection == null && closesIdle == null) {
@@ -76,20 +88,14 @@ class Controller{
 
              //Last -> assign any lift 
 
-             lift.move(this,5);
-
-            } else{
-             //Down case
-             liftsByFloorNumbers = StateByLift.get(Down);
-             floorToSend = liftsByFloorNumbers.upperBound(request.floorNumber);
-
-             if(floorToSend==null)
-             {
-             liftsByFloorNumbers = StateByLift.get(IDLE);
-             floorToSend = min(upperBound, lowerBound);
-             }
-           }
+            } 
         }
+        
+        //Handle Case 2: Anywhere in Middle to Down
+        //Handle Case 3: Anywhere in Lowest to Up
+        //Handle Case 4: Anywhere in Highest to Down
+        
+        return lift;
     }
     
     //Updates the DirectionLiftMap...Will be called by lift when changing direction
