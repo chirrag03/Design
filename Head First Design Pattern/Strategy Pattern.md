@@ -42,6 +42,8 @@ We can add a fly() method in the Duck class and then all the ducks will inherit 
 **He now has flying Rubber ducks (inanimate objects) in the SimUDuck program.**  
 **A localized update to the code caused a nonlocal side effect (flying rubber ducks)!**
 
+
+
 ![image alt text](image_1.png)
 
 ![image alt text](image_2.png)
@@ -58,7 +60,7 @@ So, we need a cleaner way to have only some (but not all) of the duck types fly 
 
 ![image alt text](image_4.png)
 
-**What do think about the design?**
+**What do you think about the design?**
 
 But while having the subclasses implement Flyable and/or Quackable solves part of the problem (no inappropriately flying rubber ducks), it completely destroys code reuse for those behaviors, so it just creates a different maintenance nightmare. 
 
