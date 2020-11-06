@@ -172,7 +172,9 @@ As you’ve seen, creating systems using composition gives you a lot more flexib
 
 ![image alt text](image_27.png)
 
-![image alt text](image_28.png)![image alt text](image_29.png)
+![image alt text](image_28.png)
+
+![image alt text](image_29.png)
 
 ![image alt text](image_30.png)
 
