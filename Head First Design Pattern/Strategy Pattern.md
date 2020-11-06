@@ -34,6 +34,7 @@ We can add a fly() method in the Duck class and then all the ducks will inherit 
 
 
 **But something went horribly wrong…** 
+
 ![image alt text](image_0_1.png)
 
 
