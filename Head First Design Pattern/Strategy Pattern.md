@@ -4,7 +4,7 @@
 
 **Problem Statement**
 
-**	Varieties of Ducks**
+**Varieties of Ducks**
 
 		Mallard Duck
 
@@ -12,7 +12,7 @@
 
 		Rubber Duck
 
-**	Duck Behaviours**
+**Duck Behaviours**
 
 		All ducks can swim
 
