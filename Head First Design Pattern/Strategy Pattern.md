@@ -38,10 +38,8 @@ We can add a fly() method in the Duck class and then all the ducks will inherit 
 
 
 **He now has flying Rubber ducks (inanimate objects) in the SimUDuck program.**  
-**A localized update to the code caused a nonlocal side effect (flying rubber ducks)!**
-
-
-
+**A localized update to the code caused a nonlocal side effect (flying rubber ducks)!**  
+  
 ![image alt text](image_1.png)
 
 ![image alt text](image_2.png)
@@ -153,8 +151,8 @@ Now we’ll allow each duck object to set these variables polymorphically to ref
 
 ![image alt text](image_21.png)
 
-![image alt text](image_22_0.png)
 
+![image alt text](image_22_0.png)  
 The HAS-A relationship is an interesting one: each duck has a FlyBehavior and a QuackBehavior to which it delegates flying and quacking. 
 
 When you put two classes together like this you’re using **composition**. Instead of inheriting their behavior, the ducks get their behavior by being composed with the right behavior object. 
