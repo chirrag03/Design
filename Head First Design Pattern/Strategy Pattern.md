@@ -25,7 +25,7 @@
 
 
 **A Possible Implementation**
-
+![image alt text](image0_0.png)
 
 
 **New Requirement: Now we need the ducks to FLY**
@@ -36,10 +36,10 @@ We can add a fly() method in the Duck class and then all the ducks will inherit 
 
 
 **But something went horribly wrong…**
-                                                                                                                                                                                          
+![image alt text](image_0_1.png)
 
-**He now has flying Rubber ducks (inanimate objects) in the SimUDuck program. **
 
+**He now has flying Rubber ducks (inanimate objects) in the SimUDuck program.**  
 **A localized update to the code caused a nonlocal side effect (flying rubber ducks)!**
 
 ![image alt text](image_1.png)
@@ -150,7 +150,7 @@ Now we’ll allow each duck object to set these variables polymorphically to ref
 
 ![image alt text](image_21.png)
 
-![image alt text](image_22.png)
+![image alt text](image_22_0.png)
 
 The HAS-A relationship is an interesting one: each duck has a FlyBehavior and a QuackBehavior to which it delegates flying and quacking. 
 
@@ -177,4 +177,6 @@ As you’ve seen, creating systems using composition gives you a lot more flexib
 ![image alt text](image_29.png)
 
 ![image alt text](image_30.png)
+
+![image alt text](image_31.png)
 
