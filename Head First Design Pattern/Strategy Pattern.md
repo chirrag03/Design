@@ -1,8 +1,6 @@
 # Strategy Pattern
 
-### SimUDuck app (Duck pond simulation game)
-
-**Problem Statement**
+### Problem Statement: SimUDuck app (Duck pond simulation game) 
 
 <ul>
 	<li><b>Varieties of Ducks</b>
@@ -24,7 +22,7 @@
 
 
 
-**A Possible Implementation**
+### A Possible Implementation
 ![image alt text](image0_0.png)
 
 
@@ -66,7 +64,7 @@ But while having the subclasses implement Flyable and/or Quackable solves part o
 
 **If you thought having to override a few methods was bad, how are you gonna feel when you need to make a little change to the flying behavior... in all 48 of the flying Duck subclasses?!**
 
-**Summarizing the problem**
+### Summarizing the problem
 
 So we know using inheritance hasn’t worked out very well, since the duck behavior keeps changing across the subclasses, and it’s not appropriate for all subclasses to have those behaviors. 
 
@@ -78,13 +76,15 @@ The Flyable and Quackable interface sounded promising at first—only ducks that
 
 ![image alt text](image_7.png)
 
-**Implementing Duck Behaviours**
+
+###  Implementing Duck Behaviours
 
 **We’ll use an interface to represent each behavior – for instance, FlyBehavior and QuackBehavior – and each concrete behavior will implement one of those interfaces.**
 
 ![image alt text](image_8.png)![image alt text](image_9.png)
 
-**Designing the Duck Behaviors**
+
+### Designing the Duck Behaviors
 
 So this time it won’t be the Duck classes that will implement the flying and quacking interfaces. Instead, we have made a set of classes whose entire reason for living is to represent a behavior (for example, "squeaking", “flyWithWings”, “FlyNoWay).
 
@@ -106,7 +106,8 @@ Duck subclasses should include behavior setter methods to use a behavior  (for e
 
 The point is to exploit polymorphism by programming to a supertype so that the actual runtime object isn’t locked into the code. And we could rephrase "program to a supertype" as “the declared type of the variables should be a supertype, usually an abstract class or interface, so that the objects assigned to those variables can be of any concrete implementation of the supertype, which means the class declaring them doesn’t have to know about the actual object types!”
 
-**Integrating Duck Behaviour**
+
+### Integrating Duck Behaviour
 
 **The key is that a Duck will now delegate its flying and quacking behavior, instead of using quacking and flying methods defined in the Duck class (or subclass).**
 
@@ -130,7 +131,7 @@ Rather than handling the quack behavior itself, the Duck object delegates that b
 
 **We’ll see how to dynamically set behaviour**
 
-**Testing the Duck code**
+### Testing the Duck code
 
 ![image alt text](image_14.png)
 
@@ -164,7 +165,8 @@ This is an important technique; in fact, our third design principle:
 
 As you’ve seen, creating systems using composition gives you a lot more flexibility. Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you **change behavior at runtime** as long as the object you’re composing with implements the correct behavior interface. 
 
-**Time to define our Strategy Pattern**
+
+### Time to define our Strategy Pattern
 
 ![image alt text](image_24.png)
 
