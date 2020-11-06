@@ -1,28 +1,32 @@
-**Strategy Pattern**
+# Strategy Pattern
 
-**SimUDuck app** (Duck pond simulation game)
+### SimUDuck app (Duck pond simulation game)
 
 **Problem Statement**
 
-**Varieties of Ducks**
+<ul>
+	<li><b>Varieties of Ducks</b>
+		<ul>
+			<li>Mallard Duck</li>
+			<li>RedHead Duck</li>
+			<li>Rubber Duck</li>
+		</ul>
+	</li>
+	<li><b>Duck Behaviours</b>
+		<ul>
+			<li>All ducks can swim</li>
+			<li>Mallard and redhead can quack</li>
+			<li>Rubber duck can squeak</li>
+			<li>All have a display name</li>
+		</ul>
+	</li>
+</ul>
 
-		Mallard Duck
 
-		RedHead Duck
-
-		Rubber Duck
-
-**Duck Behaviours**
-
-		All ducks can swim
-
-		Mallard and redhead can quack
-
-		Rubber duck can squeak
-
-		All have a display name
 
 **A Possible Implementation**
+
+
 
 **New Requirement: Now we need the ducks to FLY**
 
@@ -30,9 +34,9 @@ We can add a fly() method in the Duck class and then all the ducks will inherit 
 
 ![image alt text](image_0.png)
 
-**But something went horribly wrong…**
 
-                                                                                                                                                                                           
+**But something went horribly wrong…**
+                                                                                                                                                                                          
 
 **He now has flying Rubber ducks (inanimate objects) in the SimUDuck program. **
 
@@ -42,7 +46,7 @@ We can add a fly() method in the Duck class and then all the ducks will inherit 
 
 ![image alt text](image_2.png)
 
-**Runtime behaviour changes are difficult but when are runtime changes required? **
+**Runtime behaviour changes are difficult but when are runtime changes required?**
 
 For instance, in this game, if a duck can’t fly initially, but after the score reaches some threshold we need to give it flying capability.
 
@@ -74,17 +78,17 @@ The Flyable and Quackable interface sounded promising at first—only ducks that
 
 **Implementing Duck Behaviours**
 
-**We’ll use an interface to represent each behavior – for instance, FlyBehavior and QuackBehavior – and each concrete behavior will implement one of those interfaces. **
+**We’ll use an interface to represent each behavior – for instance, FlyBehavior and QuackBehavior – and each concrete behavior will implement one of those interfaces.**
 
 ![image alt text](image_8.png)![image alt text](image_9.png)
 
-**Designing the Duck Behaviors **
+**Designing the Duck Behaviors**
 
 So this time it won’t be the Duck classes that will implement the flying and quacking interfaces. Instead, we have made a set of classes whose entire reason for living is to represent a behavior (for example, "squeaking", “flyWithWings”, “FlyNoWay).
 
 Thus it’s the behavior class, that will implement the behavior interface (ie. flying and quacking interfaces), rather than the Duck class.
 
-***** That way, the Duck classes won’t need to know any of the implementation details for their own behaviors.**
+**That way, the Duck classes won’t need to know any of the implementation details for their own behaviors.**
 
 **Old Design:** A behavior either came from a concrete implementation in the superclass Duck, or by providing a specialized implementation in the subclass itself. 
 
@@ -122,7 +126,7 @@ Rather than handling the quack behavior itself, the Duck object delegates that b
 
 **Wait a second, didn’t you say we should NOT program to an implementation? But what are we doing in that constructor? We’re making a new instance of a concrete Quack implementation class!**
 
-***** We’ll see how to dynamically set behaviour**
+**We’ll see how to dynamically set behaviour**
 
 **Testing the Duck code**
 
@@ -132,7 +136,7 @@ Rather than handling the quack behavior itself, the Duck object delegates that b
 
 ![image alt text](image_16.png)![image alt text](image_17.png)
 
-**Dynamically changing duck behavior **
+**Dynamically changing duck behavior**
 
 We’re making a new instance of a concrete implementation class in the constructor!
 
