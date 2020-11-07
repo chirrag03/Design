@@ -10,7 +10,7 @@
 <br>
 
 > **Controller APIs:**  
-> getMovieListing(Date) 			//return list of movies  
+> getMovieListing(Date)  			//return list of movies  
 > selectMovie(movieId)				//returns list of multiplexes  
 > selectMultiplex(multiplexId, movieId) 	//returns list of shows  
 > selectShow(Show, multiplexId) 		//returns list of seats  
