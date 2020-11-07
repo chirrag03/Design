@@ -2,6 +2,8 @@
 
 ![image alt text](image_0.png)
 
+<br> 
+
 **Given WeatherData class**
 
 ![image alt text](image_1.png)
@@ -40,6 +42,8 @@ Similarly, mouse object can ask the subject to remove/ unsubscribe him. Now onwa
 
 ![image alt text](image_13.png)![image alt text](image_14.png)
 
+<br>
+
 ### Designing the Weather Station
 
 The WeatherData class certainly has state... that’s the temperature, humidity and barometric pressure. And when those measurements change, we have to notify all the display elements so that they perform a desired action. 
@@ -74,9 +78,13 @@ So every display will have, say, an update() method that WeatherData will call. 
 
 **A:** True, but in the future we may want to un-register ourselves as an observer and it would be handy to already have a reference to the subject.
 
+<br>
+
 ![image alt text](image_20.png)![image alt text](image_21.png)
 
 **Now we can add a display to show the heat index.**
+
+<br>
 
 ### Using Java’s built-in Observer Pattern
 
@@ -90,6 +98,8 @@ So every display will have, say, an update() method that WeatherData will call. 
 
 **The built in Observer Pattern works a bit differently than the implementation that we used on the Weather Station.** The most obvious difference is that WeatherData (our subject) now extends the Observable class and inherits the add, delete and notify Observer methods (among a few others). 
 
+<br>
+
 **Here’s how we use Java’s in-built version:**
 
 ![image alt text](image_23.png)
@@ -99,6 +109,8 @@ So every display will have, say, an update() method that WeatherData will call. 
 The setChanged() method is used to signify that the state has changed and should update its observers when notifyObservers() is called. If notifyObservers() is called without calling setChanged(), observers will NOT be notified. 
 
 ![image alt text](image_24.png) **Pseudocode for Observable**
+
+<br>
 
 **Why is this necessary?**
 
