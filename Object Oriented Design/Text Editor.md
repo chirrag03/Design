@@ -33,7 +33,7 @@ interface Operation{
 
 //We can have different Operations like AddCharOperation, DeleteCharOperation, CutTextOperation, PasteTextOperation
 class PasteTextOperation implements Operation{
-    Context context;
+    Context context;  //This contains the info that what text needs to pasted at what index  
     
     performAction(String completeText){
        int start = 0
