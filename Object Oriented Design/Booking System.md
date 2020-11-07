@@ -9,13 +9,21 @@
 
 <br>
 
-> **APIs:**  
-> addShow(int startTime, int endTime, Hall, Show)  
-> getShowListing(Location, Date, MovieName)  
-> getSeatListing(Show)			//Show prices also  
-> bookTickets(show, list<seats>)  
-> getBookings(userId)  
-
+> **Controller APIs:**  
+> getMovieListing(Date) 			//return list of movies  
+> selectMovie(movieId)				//returns list of multiplexes  
+> selectMultiplex(multiplexId, movieId) 	//returns list of shows  
+> selectShow(Show, multiplexId) 		//returns list of seats  
+> bookSeats(Show, List<seats>)			//Returns a Ticket object  
+	
+> **Multiplex APIs:**  
+> getShowListing(movieId) 		//returns a list of shows for this movieId  
+> getSeatListing(Show)			//returns an array of seats with Type and price and availability  
+> bookSeats(Show, List<seats>)		//Check again if seats available for the Show and mark the seats as booked  
+	
+> **Additional APIs:**  
+getBookings(userId)  				//In Controller.....to get all bookings  
+addShow(startTime, endTime, hallId, movieId)  	//In Multiplex......Adds this show to the multiplex  
 
 **Let's have a look at the data classes & business logic classes:**   
 
