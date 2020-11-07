@@ -122,10 +122,28 @@ class Controller{
       
       search(String target){
           //Search target in completeText and return all indices
+          List<Integer> indices = new ArrayList<>();
+          for(int i=0;i<completeText.length();i++){
+             boolean isFound = true;
+             int currIndex = i;
+             for(int j=0;j<target.length();j++){
+                if(completeText.charAt(currIndex) != target.charAt(j)){
+                    isFound = false;
+                }
+                currIndex++;
+             }
+             
+             if(isFound){
+                 indices.add(i)
+                 i = currIndex
+             }
+          }
+          
+          return indices;
       }
       
       findAndReplace(String src, String target){
-          int[] indices = search(src)
+          List<Integer> indices = search(src)
           //Replace target in completeText at all indices
       }
       
