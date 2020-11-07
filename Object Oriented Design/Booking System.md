@@ -41,7 +41,7 @@ enum Type{
 class Show{
 	int id
 	int startTime
-  int endTime
+	int endTime
 	int movieId
 	int hallId
 	Boolean[][] availableSeats			
@@ -64,27 +64,27 @@ class Ticket{
 }
 
 class Multiplex{
-  int id
-  String name
-  String address
+	int id
+	String name
+	String address
 	Map<hallId, Hall>
 	Map<showId, Show>
 
 	getShowListing(movieId){
-    //returns a list of shows for this movieId
-  }
+		//returns a list of shows for this movieId
+	}
 
-  getSeatListing(Show){
-    //Show -> hallId -> Hall -> Seats
-    //Use Show -> availableSeats to filter available seats
-    //update prices of seats on basis of show multiplication factor
-    //returns an array of seats with Type and price and availability
-  }
+	getSeatListing(Show){
+		//Show -> hallId -> Hall -> Seats
+		//Use Show -> availableSeats to filter available seats
+		//update prices of seats on basis of show multiplication factor
+		//returns an array of seats with Type and price and availability
+	}
 
-  bookSeats(Show, List<seats>){
-    //Check again if seats available for the Show
-    //mark the seats as booked
-  }
+	bookSeats(Show, List<seats>){
+		//Check again if seats available for the Show
+		//mark the seats as booked
+	}
 }
 
 class Controller{
@@ -92,26 +92,26 @@ class Controller{
 	Map<movie, list<multiplexId>> movieMultiplexMapping
 
 	getMovieListing(Date){
-     //return list of movies
-  }
+		//return list of movies
+	}
 
-  selectMovie(movieId){
-    //returns list of multiplexes
-  }
+	selectMovie(movieId){
+		//returns list of multiplexes
+	}
 
-  selectMultiplex(multiplexId, movieId){
-    //Fetch the Multiplex from multiplexMap
-    multiplex.getShowListing(movieId)
-  }
+	selectMultiplex(multiplexId, movieId){
+		//Fetch the Multiplex from multiplexMap
+		multiplex.getShowListing(movieId)
+	}
 
-  select show(Show, multiplexId){
-    multiplex.getSeatListing(Show)
-  }
+	select show(Show, multiplexId){
+		multiplex.getSeatListing(Show)
+	}
 
-  bookSeats(Show, List<seats>){
-    multiplex.bookSeats(Show, List<seats>)
-    //Returns a Ticket object
-  }
+	bookSeats(Show, List<seats>){
+		multiplex.bookSeats(Show, List<seats>)
+		//Returns a Ticket object
+	}
 
 }
 
