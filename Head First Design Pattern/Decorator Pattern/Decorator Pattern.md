@@ -122,7 +122,7 @@ Here’s a typical set of objects that use decorators to add functionality to re
 **How about this: write a decorator that converts all uppercase characters to lowercase in the input stream.**
 
 **public int read()**
-**(specified in in class InputStream)**
+**(specified in in class InputStream)**  
 Reads the next byte (8 bits) of data from this input stream. The value byte is returned as an int in the range 0 to 255. If no byte is available because the end of the stream has been reached, the value -1 is returned.
 So if the file in question happens to be a text file, and the first character is a capital 'A', read() will return 65.
 
@@ -131,7 +131,7 @@ So if the file in question happens to be a text file, and the first character is
 **public int read(byte[] b, int off, int len)**
 - **b - the buffer into which the data is read**
 - **off - the start offset in the destination array b**
-- **len - the maximum number of bytes read**
+- **len - the maximum number of bytes read**  
 Reads up to len bytes of data from this input stream into an array of bytes b, starting from position off in destination array b. 
 Returns the total number of bytes read into the buffer, or -1 if there is no more data because the end of the stream has been reached.
 
