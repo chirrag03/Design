@@ -12,9 +12,11 @@
 <br>
 
 > **APIs:**  
-> To start a game (initialise board, players, turn)     
-> Move (player moving a piece)    
-> Display current state   
+> performOperation(operation)  
+> undo()  
+> redo()  
+> search(String target)  
+> findAndReplace(String src, String target)  
 
 **Let's have a look at the data classes & business logic classes:**   
 
