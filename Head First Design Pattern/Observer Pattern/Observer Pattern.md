@@ -24,7 +24,7 @@ Let’s take a look at how a newspaper/magazine subscription model works:
 
 ![image alt text](image_7.png)
 
-![image alt text](image_8.png)![image alt text](image_9.png)
+![image alt text](image_8.png)
 
 Anytime the Duck object can ask the Subject to become a subscriber. Once the subject registers the Duck object, it becomes an official observer. Now Duck will also receive a notification that Subject has been updated.
 
@@ -134,7 +134,7 @@ Because Observable is a class, not an interface, you have to subclass it. That m
 
 **Thus, java.util.Observable violate our OO design principle of programming to interfaces not implementations**
 
-**Observable protects crucial methods such as the setChanged() method. So what? **This means you can’t call setChanged() unless you’ve subclassed Observable. This means you can’t even create an instance of the Observable class and compose it with your own objects, you have to subclass. 
+**Observable protects crucial methods such as the setChanged() method. So what?** This means you can’t call setChanged() unless you’ve subclassed Observable. This means you can’t even create an instance of the Observable class and compose it with your own objects, you have to subclass. 
 
 **Thus, java.util.Observable violate our OO design principle of favoring composition over inheritance.**
 
