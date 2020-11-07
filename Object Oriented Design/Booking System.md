@@ -20,7 +20,9 @@
 > getShowListing(movieId) 		//returns a list of shows for this movieId  
 > getSeatListing(Show)			//returns an array of seats with Type and price and availability  
 > bookSeats(Show, List<seats>)		//Check again if seats available for the Show and mark the seats as booked  
-	
+
+<br>
+
 > **Additional APIs:**  
 getBookings(userId)  				//In Controller.....to get all bookings  
 addShow(startTime, endTime, hallId, movieId)  	//In Multiplex......Adds this show to the multiplex  
