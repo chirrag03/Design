@@ -144,14 +144,9 @@ We’re making a new instance of a concrete implementation class in the construc
 
 Now we’ll allow each duck object to set these variables polymorphically to reference the specific behavior type it would like at runtime (FlyWithWings, Squeak, etc.). 
 
-![image alt text](image_18.png)
-
-![image alt text](image_19.png)
-
 ![image alt text](image_20.png)
 
 ![image alt text](image_21.png)
-
 
 ![image alt text](image_22_0.png)  
 The HAS-A relationship is an interesting one: each duck has a FlyBehavior and a QuackBehavior to which it delegates flying and quacking. 
