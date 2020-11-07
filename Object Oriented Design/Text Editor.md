@@ -80,10 +80,30 @@ class Controller{
             undoListTail = toBeAdded
           }
       }
+
+      //private function
+      removeLastOperationFromUndoList(){
+          undoListTail = undoListTail.prev
+          if(undoListTail == null){
+            undoListHead == null
+          }else{
+            undoListTail.next = null
+          }
+      }
       
       //private function
       addOperationToRedoList(operation){
 
+      }
+
+      //private function
+      removeLastOperationFromRedoList(){
+          redoListTail = redoListTail.prev
+          if(redoListTail == null){
+            redoListHead == null
+          }else{
+            redoListTail.next = null
+          }
       }
       
       undo(){
@@ -93,13 +113,8 @@ class Controller{
           
           Operation operation = undoListTail.data
           operation.undoAction(completeText)
-          undoListTail = undoListTail.prev
-          if(undoListTail == null){
-            undoListHead == null
-          }else{
-            undoListTail.next = null
-          }
-          
+
+          removeLastOperationFromUndoList()
           addOperationToRedoList(operation)
       }
       
@@ -110,13 +125,8 @@ class Controller{
           
           Operation operation = redoListTail.data
           operation.performAction(completeText)
-          redoListTail = redoListTail.prev
-          if(redoListTail == null){
-            redoListHead == null
-          }else{
-            redoListTail.next = null
-          }
-          
+
+          removeLastOperationFromRedoList
           addOperationToUndoList(operation)
       }
       
@@ -129,6 +139,7 @@ class Controller{
              for(int j=0;j<target.length();j++){
                 if(completeText.charAt(currIndex) != target.charAt(j)){
                     isFound = false;
+                    break;
                 }
                 currIndex++;
              }
