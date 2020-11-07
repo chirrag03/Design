@@ -64,7 +64,7 @@ class Controller{
       Node<Operation> redoListTail;
       
       performOperation(operation){
-          operation.performAction(completeText)
+          completeText = operation.performAction(completeText)
           addOperationToUndoList(operation)
       }
       
@@ -112,7 +112,7 @@ class Controller{
           }
           
           Operation operation = undoListTail.data
-          operation.undoAction(completeText)
+          completeText = operation.undoAction(completeText)
 
           removeLastOperationFromUndoList()
           addOperationToRedoList(operation)
@@ -124,7 +124,7 @@ class Controller{
           }
           
           Operation operation = redoListTail.data
-          operation.performAction(completeText)
+          completeText = operation.performAction(completeText)
 
           removeLastOperationFromRedoList
           addOperationToUndoList(operation)
@@ -155,7 +155,19 @@ class Controller{
       
       findAndReplace(String src, String target){
           List<Integer> indices = search(src)
+          
           //Replace target in completeText at all indices
+          String updatedText = "";
+          int lastIndex = 0;
+          
+          for(int i=0;i<indices.size();i++){
+             int currIndex = indices.get(i);
+             
+             updatedText += completeText.substring(lastIndex, currIndex) + target;
+             lastIndex = currIndex + target.length();
+          }
+          updatedText += completeText.substring(lastIndex, completeText.length());
+          completeText = updatedText;
       }
       
 }
