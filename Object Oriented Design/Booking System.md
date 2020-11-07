@@ -67,8 +67,8 @@ class Multiplex{
 	int id
 	String name
 	String address
-	Map<hallId, Hall>
-	Map<showId, Show>
+	Map<hallId, Hall> hallIdMap;
+	Map<showId, Show> showIdMap;
 
 	getShowListing(movieId){
 		//returns a list of shows for this movieId
@@ -104,7 +104,7 @@ class Controller{
 		multiplex.getShowListing(movieId)
 	}
 
-	select show(Show, multiplexId){
+	selectShow(Show, multiplexId){
 		multiplex.getSeatListing(Show)
 	}
 
