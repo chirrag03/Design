@@ -140,7 +140,8 @@ private Singleton () {
 }
 ```
 <br>
-**2) Serialization and Deserialization**
+
+**2) Serialization and Deserialization** 
 
 De-serialization always creates a new instance. 
 
@@ -190,7 +191,8 @@ protected Object readResolve() {
 ```
 
 <br>
-**3) Break by Cloning**
+
+**3) Break by Cloning** 
 
 If a Singleton class implements java.lang.Cloneable interface then invoking clone() method on its single instance creates a duplicate object. Consider the below code:
 
