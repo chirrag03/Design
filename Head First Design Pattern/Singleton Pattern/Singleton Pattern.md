@@ -239,22 +239,19 @@ public enum EnumSingleton {
 }
 ```
 
-
 To access the singleton object: MySingleton.INSTANCE
-
 To access the singleton's methods: MySingleton.INSTANCE.doSomething();
 
-Together, the following 4 things ensure that no instances of an enum type exist beyond those defined by the enum constants.
+<br>
 
-* An **enum** type has **no** instances other than those defined by its **enum** constants. 
+Together, the following 4 things ensure that no instances of an enum type exist beyond those defined by the enum constants.  
+* An **enum** type has **no** instances other than those defined by its **enum** constants. It is a compile-time error to attempt to explicitly instantiate an enum type. Java ensures that any enum value is instantiated only once in a Java program.  
 
-It is a compile-time error to attempt to explicitly instantiate an enum type. Java ensures that any enum value is instantiated only once in a Java program. 
+* The final clone method in Enum ensures that enum constants can never be cloned.  
 
-* The final clone method in Enum ensures that enum constants can never be cloned.
+* The special treatment by the serialization mechanism ensures that duplicate instances are never created as a result of deserialization.   
 
-* The special treatment by the serialization mechanism ensures that duplicate instances are never created as a result of deserialization. 
-
-* Reflective instantiation of enum types is prohibited. 
+* Reflective instantiation of enum types is prohibited.   
 
 **The drawback is that the enum type is somewhat inflexible; for example, it does not allow lazy initialization.**
 
