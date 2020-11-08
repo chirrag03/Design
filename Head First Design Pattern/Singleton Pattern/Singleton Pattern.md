@@ -239,7 +239,7 @@ public enum EnumSingleton {
 }
 ```
 
-To access the singleton object: MySingleton.INSTANCE
+To access the singleton object: MySingleton.INSTANCE  
 To access the singleton's methods: MySingleton.INSTANCE.doSomething();
 
 <br>
