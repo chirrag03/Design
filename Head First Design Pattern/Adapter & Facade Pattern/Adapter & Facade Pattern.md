@@ -182,30 +182,18 @@ Check out all the components available:
 
 Home theatre does the following tasks:
 
-1. Turn on the popcorn popper 
-
-2. Start the popper popping 
-
-3. Dim the lights 
-
-4. Put the screen down 
-
-5. Turn the projector on 
-
-6. Set the projector input to DVD 
-
-7. Put the projector on wide-screen mode 
-
-8. Turn the sound amplifier on 
-
-9. Set the amplifier to DVD input 
-
-10. Set the amplifier to surround sound 
-
-11. Set the amplifier volume to medium (5) 
-
-12. Turn the DVD Player on 
-
+1. Turn on the popcorn popper   
+2. Start the popper popping   
+3. Dim the lights    
+4. Put the screen down  
+5. Turn the projector on  
+6. Set the projector input to DVD  
+7. Put the projector on wide-screen mode  
+8. Turn the sound amplifier on  
+9. Set the amplifier to DVD input  
+10. Set the amplifier to surround sound  
+11. Set the amplifier volume to medium (5)  
+12. Turn the DVD Player on  
 13. Start the DVD Player playing 
 
 Let’s check out those same tasks in terms of the classes and the method calls needed to perform them:
