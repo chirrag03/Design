@@ -288,10 +288,11 @@ The principle provides some guidelines: take any object; now the principle tells
 
 ![image alt text](image_32.png)
 
-**NOTE:**
+![image alt text](image_32_0.png)
+
+<br>
 
 **What’s the harm in calling the method of an object we get back from another call?**
-
 Well, if we were to do that, then we’d be making a request of another object’s subpart (and increasing the number of objects we directly know). In such cases, the principle forces us to ask the object to make the request for us; that way we don’t have to know about its component objects (and we keep our circle of friends small). For example:
 
 ![image alt text](image_33.png)![image alt text](image_34.png)
@@ -338,11 +339,8 @@ The intent of the Facade Pattern is just to provide a simplified interface to a 
 
 A facade decouples a client from a complex subsystem. 
 
-**Q: Is it correct to say that the adapter wraps one class and the facade may represent many classes?**
-
-**A:** No! 
-
+**Q: Is it correct to say that the adapter wraps one class and the facade may represent many classes?**  
+**A:** No!  
 While most textbook examples show the adapter adapting one class, you may need to adapt many classes to provide the interface a client is coded to. 
-
 Likewise, a Facade may provide a simplified interface to a single class with a very complex interface.
 
