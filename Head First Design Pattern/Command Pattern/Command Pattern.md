@@ -44,11 +44,11 @@ So, you see, the remote is decoupled from the light object!
 
 ![image alt text](image_2.png)
 
-**Implementing the Command interface **
+**Implementing the Command interface**
 
 ![image alt text](image_3.png)
 
-**Implementing a Command to turn a light on **
+**Implementing a Command to turn a light on**
 
 Referring to our set of vendor classes, the Light class has two methods: on() and off(). ![image alt text](image_3_0.png)  
 
@@ -120,8 +120,9 @@ When we create the commands to be loaded into the remote, we create one LightCom
 
 **Then, in our RemoteControl constructor, we assign every slot a NoCommand object by default and we know we’ll always have some command to call in each slot.**
 
-**Implementing a new command : The Stereo Command**
+<br> 
 
+**Implementing a new command : The Stereo Command**  
 Off command is easy, we just bind the Stereo to the off() method in the StereoOffCommand. On is a little more complicated; 
 
 ![image alt text](image_11_0.png)
@@ -153,7 +154,7 @@ Off command is easy, we just bind the Stereo to the off() method in the StereoOf
 
 ![image alt text](image_18.png)
 
-**Testing**
+<br>
 
 ![image alt text](image_19.png)
 
@@ -168,8 +169,6 @@ Off command is easy, we just bind the Stereo to the off() method in the StereoOf
 ![image alt text](image_22.png)
 
 ![image alt text](image_23.png)
-
-![image alt text](image_24.png)
 
 ![image alt text](image_25.png)
 
@@ -217,6 +216,8 @@ Ex: Kitchen Light and Bedroom Light. Both can be passed to a LightOnCommand. But
 
 **A:** Great question! It’s pretty easy actually; instead of keeping just a reference to the last Command executed, you keep a stack of previous commands. Then, whenever undo is pressed, your invoker pops the first item off the stack and calls its undo() method.
 
+<br> 
+
 ### More uses of the Command Pattern: 
 
 **1) queuing requests**  
@@ -258,19 +259,14 @@ Take, for example, a spreadsheet application: we might want to implement our fai
 
 ![image alt text](image_38.png)
 
-Client			→		Customer
+Client → Customer
+Command	→ Order
+Receiver → Cook
+Invoker (Remote) → Waitress
+setCommand() → takeOrder()
+execute() → orderUp()
 
-Command		→		Order
-
-Receiver		→		Cook
-
-Invoker (Remote)	→		Waitress
-
-setCommand()	→		takeOrder()
-
-execute()		→		orderUp()
-
-``java
+```java
 //Order Interface → Command interface
 public interface Order{
 	public void OrderUp();
@@ -299,5 +295,4 @@ public class Waitress{
   }
 }
 
-
-```
+````
