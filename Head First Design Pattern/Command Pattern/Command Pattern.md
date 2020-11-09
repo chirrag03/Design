@@ -98,6 +98,7 @@ Invokers can be parameterized with Commands, even dynamically at runtime.
 ![image alt text](image_8.png)
 
 <br>
+
 ### Creating the actual Remote
 
 **Assigning commands to slots**
