@@ -1,7 +1,6 @@
 # Command Pattern
 
-### Problem Statement 
-Design the API for a Home Automation Remote Control.  
+### Problem Statement: Design the API for a Home Automation Remote Control.  
 
 The remote control features seven programmable slots (each can be assigned to a different household device) along with corresponding on/off buttons for each.  
 
@@ -15,6 +14,8 @@ Vendors have created JAVA classes to control home automation devices such as lig
 
 **Note:** It is important that we be able to control the current devices, and also any future devices that the vendors may supply. 
 
+<br>
+
 ![image alt text](image_1.png)
 
 Vendor classes don’t just have a on() and off() methods, but here we’ve got methods like dim(), setTemperature(), setVolume(), setDirection().
@@ -27,6 +28,8 @@ Not only that, we can expect more vendor classes in the future with just as dive
 **Mary:** I’m not sure, but we don’t want the remote to have to know the specifics of the vendor classes. We don’t want the remote to consist of a set of if statements, like "if slot1 == Light, then light.on(), else if slot1 = Hottub then hottub.jetsOn()". We know that is a bad design. 
 
 **Sue:** I agree. Whenever a new vendor class comes out, we’d have to go in and modify the code, potentially creating bugs and more work for ourselves!
+
+<br>
 
 ### Command Pattern to the rescue
 
@@ -62,6 +65,8 @@ Referring to our set of vendor classes, the Light class has two methods: on() an
 
 ![image alt text](image_5.png)
 
+<br>
+
 **Implementing a Command to open Garage door**
 
 ![image alt text](image_6.png)
@@ -92,7 +97,8 @@ Invokers can be parameterized with Commands, even dynamically at runtime.
 
 ![image alt text](image_8.png)
 
-**Creating the actual Remote**
+<br>
+### Creating the actual Remote
 
 **Assigning commands to slots**
 
@@ -140,6 +146,7 @@ Off command is easy, we just bind the Stereo to the off() method in the StereoOf
 
 ![image alt text](image_15.png)
 
+<br>
 **Implementing the UNDO command**
 
 1. When commands support undo, they have an undo() method that mirrors the execute() method. Whatever execute() last did, undo() reverses. So, first we need to add an undo() method to the Command interface:
@@ -172,6 +179,7 @@ Off command is easy, we just bind the Stereo to the off() method in the StereoOf
 
 ![image alt text](image_25.png)
 
+<br>
 **Implementing a Party Mode Button**
 
 That can have the lights dimmed, the stereo and TV turned on and the hot tub fired up
