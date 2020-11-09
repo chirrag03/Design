@@ -174,7 +174,7 @@ This is a case where the adapter isn’t perfect; clients will have to watch out
 
 ### Facade Pattern
 
-**Home Sweet Home Theater **
+**Home Sweet Home Theater**
 
 Check out all the components available: 
 
@@ -304,9 +304,9 @@ Well, if we were to do that, then we’d be making a request of another object�
 
 ![image alt text](image_35.png)
 
-**Q: Can you think of a common use of Java that violates the Principle of Least Knowledge? **
+**Q: Can you think of a common use of Java that violates the Principle of Least Knowledge?**
 
-**A: **How about System.out.println()? 
+**A:** How about System.out.println()? 
 
 <br>
 
