@@ -148,6 +148,7 @@ Off command is easy, we just bind the Stereo to the off() method in the StereoOf
 ![image alt text](image_15.png)
 
 <br>
+
 **Implementing the UNDO command**
 
 1. When commands support undo, they have an undo() method that mirrors the execute() method. Whatever execute() last did, undo() reverses. So, first we need to add an undo() method to the Command interface:
@@ -181,6 +182,7 @@ Off command is easy, we just bind the Stereo to the off() method in the StereoOf
 ![image alt text](image_25.png)
 
 <br>
+
 **Implementing a Party Mode Button**
 
 That can have the lights dimmed, the stereo and TV turned on and the hot tub fired up
