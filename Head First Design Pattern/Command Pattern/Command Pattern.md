@@ -259,12 +259,12 @@ Take, for example, a spreadsheet application: we might want to implement our fai
 
 ![image alt text](image_38.png)
 
-Client → Customer
-Command	→ Order
-Receiver → Cook
-Invoker (Remote) → Waitress
-setCommand() → takeOrder()
-execute() → orderUp()
+Client → Customer  
+Command	→ Order  
+Receiver → Cook  
+Invoker (Remote) → Waitress  
+setCommand() → takeOrder()  
+execute() → orderUp()  
 
 ```java
 //Order Interface → Command interface
@@ -289,10 +289,10 @@ class PizzaOrder implements Order{
 
 public class Waitress{
 	Order order;
-	
+
 	public void takeOrder(Order o){
 		Order = o;
-  }
+	}
 }
 
 ````
