@@ -1,10 +1,10 @@
-**Adapter & Facade Pattern**
+# Adapter & Facade Pattern
 
 Have you ever needed to use a US-made laptop in a European country? Then you’ve probably needed an AC power adapter…
 
 ![image alt text](image_0.png)
 
-**Object Oriented Adapters**
+<br>
 
 ![image alt text](image_1.png)
 
@@ -32,7 +32,11 @@ Have you ever needed to use a US-made laptop in a European country? Then you’v
 
 **Now, let’s say you’re short on Duck objects and you’d like to use some Turkey objects in their place. Obviously we can’t use the turkeys outright because they have a different interface.**
 
-**Adapter to convert a Turkey to Duck (expected)**![image alt text](image_8.png)**Test Drive**
+**Adapter to convert a Turkey to Duck (expected)**  
+
+![image alt text](image_8.png)  
+
+**Test Drive**  
 
 ![image alt text](image_9.png)
 
@@ -46,19 +50,23 @@ Have you ever needed to use a US-made laptop in a European country? Then you’v
 
 ![image alt text](image_12.png)
 
-**Q: How much "adapting" does an adapter need to do? It seems like if I need to implement a large target interface, I could have a LOT of work on my hands. **
+**Q: How much "adapting" does an adapter need to do? It seems like if I need to implement a large target interface, I could have a LOT of work on my hands.**
 
-**A: **You certainly could. The job of implementing an adapter really is proportional to the size of the interface you need to support as your target interface. Think about your options, however. You could rework all your client-side calls to the interface, which would result in a lot of investigative work and code changes. Or, you can cleanly provide one class that encapsulates all the changes in one class.
+**A:** You certainly could. The job of implementing an adapter really is proportional to the size of the interface you need to support as your target interface. Think about your options, however. You could rework all your client-side calls to the interface, which would result in a lot of investigative work and code changes. Or, you can cleanly provide one class that encapsulates all the changes in one class.
 
-**Q: Does an adapter always wrap one and only one class? **
+**Q: Does an adapter always wrap one and only one class?**
 
 **A:** The Adapter Pattern’s role is to convert one interface into another. While most examples of the adapter pattern show an adapter wrapping one adaptee, but you may well have situations where an adapter holds two or more adaptees that are needed to implement the target interface. This relates to another pattern called the Facade Pattern; people often confuse the two. 
 
-**Q: What if I have old and new parts of my system, the old parts expect the old vendor interface, but we’ve already written the new parts to use the new vendor interface? It is going to get confusing using an adapter here and the unwrapped interface there. Wouldn’t I be better off just writing my older code and forgetting the adapter? **
+**Q: What if I have old and new parts of my system, the old parts expect the old vendor interface, but we’ve already written the new parts to use the new vendor interface? It is going to get confusing using an adapter here and the unwrapped interface there. Wouldn’t I be better off just writing my older code and forgetting the adapter?**
 
 **A:** Not necessarily. One thing you can do is create a Two Way Adapter that supports both interfaces. To create a Two Way Adapter, just implement both interfaces involved, so the adapter can act as an old interface or a new interface.
 
-** Adapter Pattern Defined**
+<br>
+
+### Adapter Pattern Defined
+
+![image alt text](image_12_0.png)  
 
 This acts to decouple the client from the implemented interface, and if we expect the interface to change over time, the adapter encapsulates that change so that the client doesn’t have to be modified each time it needs to operate against a different interface. 
 
@@ -66,13 +74,15 @@ This acts to decouple the client from the implemented interface, and if we expec
 
 ![image alt text](image_13.png)
 
-**Object and class adapters **
+**Object and class adapters**
 
 This chapter has covered object adapters till now. 
 
-**So what’s a class adapter and why haven’t we told you about it? **
+**So what’s a class adapter and why haven’t we told you about it?**
 
 Because you need multiple inheritance to implement it, which isn’t possible in Java. But, that doesn’t mean you might not encounter a need for class adapters down the road when using your favorite multiple inheritance language!
+
+![image alt text](image_13_0.png)
 
 Look familiar? The only difference is that with class adapter we subclass the Target and the Adaptee, while with object adapter we use composition to pass requests to an Adaptee. 
 
@@ -80,9 +90,11 @@ Look familiar? The only difference is that with class adapter we subclass the Ta
 
 ![image alt text](image_15.png)
 
-**Comparing the two**
+<br>
 
-**Object Adapter: **
+### Comparing the two
+
+**Object Adapter:**
 
 → Uses object composition to wrap the adaptee with an altered interface. 
 
@@ -90,19 +102,19 @@ Advantage: Can use this adapter to adapt to any subclass of the adaptee.
 
 **Ex: Apart from WildTurkey we could pass AustralianTurkey**
 
-**Class Adapter: **
+**Class Adapter:**
 
 → This will have trouble with that because I am committed to one specific adaptee class.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Class Adapter: **
+**Class Adapter:**
 
 → Uses Inheritance
 
 Advantage: Can override the behavior of adaptee if need be
 
-**Object Adapter: **
+**Object Adapter:**
 
 Cannot override a method, but any behavior if added to adapter code works with the adaptee class and all its subclasses.
 
@@ -110,7 +122,7 @@ But if a subclass of adaptee adds some new behavior. Then we need to compose wit
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Object Adapter: **
+**Object Adapter:**
 
 → This pattern binds the client to an interface, not an implementation; we could use several adapters, each converting a different backend set of classes. Or, we could add new implementations after the fact, as long as they adhere to the Target interface.
 
@@ -120,7 +132,9 @@ But if a subclass of adaptee adds some new behavior. Then we need to compose wit
 
 **Object adapters and class adapters use two different means of adapting the adaptee (composition versus inheritance). How do these implementation differences affect the flexibility of the adapter?**
 
-**Real world adapters 		**
+<br>
+
+### Real world adapters
 
 ![image alt text](image_16.png)
 
@@ -140,23 +154,25 @@ For now, here’s the class diagram:
 
 ![image alt text](image_18.png)
 
-**But what do you do about remove()? **
+**But what do you do about remove()?**
 
 Well, we know Enumeration just doesn’t support remove. It’s a "read only" interface. There’s no way to implement a fully functioning remove() method on the adapter. The best we can do is throw a runtime exception.
 
 This is a case where the adapter isn’t perfect; clients will have to watch out for potential exceptions, but as long as the client is careful and the adapter is well documented this is a perfectly reasonable solution. 
 
-**Writing the EnumerationIterator adapter **
+**Writing the EnumerationIterator adapter**
 
 ![image alt text](image_19.png)
 
-**While Java has gone in the direction of the Iterator, there is nevertheless a lot of legacy client code that depends on the Enumeration interface, so an Adapter that converts an Iterator to an Enumeration is also quite useful. **
+**While Java has gone in the direction of the Iterator, there is nevertheless a lot of legacy client code that depends on the Enumeration interface, so an Adapter that converts an Iterator to an Enumeration is also quite useful.**
 
 **Write an Adapter that adapts an Iterator to an Enumeration. You can test your code by adapting an ArrayList. The ArrayList class supports the Iterator interface but doesn’t support Enumerations (well, not yet anyway).**
 
 ![image alt text](image_20.png)
 
-**Facade Pattern**
+<br>
+
+### Facade Pattern
 
 **Home Sweet Home Theater **
 
@@ -211,24 +227,28 @@ So what to do? The complexity of using your home theater is becoming apparent!
 Don’t worry; if you need the power of the complex subsystem, it’s still there for you to use, but if all you need is a straightforward interface, the Facade is there for you. 
 
 ![image alt text](image_23.png)
+![image alt text](image_23_0.png)
 
-**Q: If the Facade encapsulates the subsystem classes, how does a client that needs lower-level functionality gain access to them? **
 
-**A: **Facades don’t "encapsulate" the subsystem classes; they merely provide a simplified interface to their functionality. The subsystem classes still remain available for direct use by clients that need to use more specific interfaces. 
+**Q: If the Facade encapsulates the subsystem classes, how does a client that needs lower-level functionality gain access to them?**
 
-**Q: What is the benefit of the facade other than the fact that I now have a simpler interface? **
+**A:** Facades don’t "encapsulate" the subsystem classes; they merely provide a simplified interface to their functionality. The subsystem classes still remain available for direct use by clients that need to use more specific interfaces. 
 
-**A: **The Facade Pattern also allows you to decouple your client implementation from any one subsystem. Let’s say for instance that you get a big raise and decide to upgrade your home theater to all new components that have different interfaces. Well, if you coded your client to the facade rather than the subsystem, your client code doesn’t need to change, just the facade (and hopefully the manufacturer is supplying that!).
+**Q: What is the benefit of the facade other than the fact that I now have a simpler interface?**
+
+**A:** The Facade Pattern also allows you to decouple your client implementation from any one subsystem. Let’s say for instance that you get a big raise and decide to upgrade your home theater to all new components that have different interfaces. Well, if you coded your client to the facade rather than the subsystem, your client code doesn’t need to change, just the facade (and hopefully the manufacturer is supplying that!).
 
 **Q: Does each subsystem have only one facade?**
 
 **A:** Not necessarily. The pattern certainly allows for any number of facades to be created for a given subsystem.
 
-**Q: Does the facade add any functionality or does it just pass through each request to the subsystem? **
+**Q: Does the facade add any functionality or does it just pass through each request to the subsystem?**
 
 **A:** A facade is free to add its own "smarts" in addition to making use of the subsystem. For instance, while our home theater facade doesn’t implement any new behavior, it is smart enough to know that the popcorn popper has to be turned on before it can pop (as well as the details of how to turn on and stage a movie showing).
 
-**Constructing your home theater facade **
+<br>
+
+**Constructing your home theater facade**
 
 ![image alt text](image_24.png)
 
@@ -242,15 +262,17 @@ Don’t worry; if you need the power of the complex subsystem, it’s still ther
 
 ![image alt text](image_27.png)
 
-**Facade Pattern defined **
+<br>
+
+### Facade Pattern defined 
 
 ![image alt text](image_28.png)
 
-**Implementing a facade requires that we compose the facade with its subsystem and use delegation to perform the work of the facade. **
+**Implementing a facade requires that we compose the facade with its subsystem and use delegation to perform the work of the facade.**
 
 ![image alt text](image_29.png)
 
-**The Principle of Least Knowledge **
+**The Principle of Least Knowledge**
 
 ![image alt text](image_30.png)
 
@@ -258,7 +280,7 @@ It means when you are designing a system, for any object, be careful of the numb
 
 This principle prevents us from creating designs that have a large number of classes coupled together so that changes in one part of the system cascade to other parts. When you build a lot of dependencies between many classes, you are building a fragile system that will be costly to maintain and complex for others to understand.
 
-**Okay, but how do you keep from doing this? **
+**Okay, but how do you keep from doing this?**
 
 The principle provides some guidelines: take any object; now the principle tells us that from any method in that object, we should only invoke methods that belong to:
 
@@ -266,19 +288,19 @@ The principle provides some guidelines: take any object; now the principle tells
 
 ![image alt text](image_32.png)
 
-***** NOTE:**
+**NOTE:**
 
-**What’s the harm in calling the method of an object we get back from another call? **
+**What’s the harm in calling the method of an object we get back from another call?**
 
 Well, if we were to do that, then we’d be making a request of another object’s subpart (and increasing the number of objects we directly know). In such cases, the principle forces us to ask the object to make the request for us; that way we don’t have to know about its component objects (and we keep our circle of friends small). For example:
 
 ![image alt text](image_33.png)![image alt text](image_34.png)
 
-**Q: Are there any disadvantages to applying the Principle of Least Knowledge? **
+**Q: Are there any disadvantages to applying the Principle of Least Knowledge?**
 
-**A: **Yes; while the principle reduces the dependencies between objects and studies have shown this reduces software maintenance, it is also the case that applying this principle results in more "wrapper" classes being written to handle method calls to other components. This can increase complexity and development time and decrease runtime performance.
+**A:** Yes; while the principle reduces the dependencies between objects and studies have shown this reduces software maintenance, it is also the case that applying this principle results in more "wrapper" classes being written to handle method calls to other components. This can increase complexity and development time and decrease runtime performance.
 
-**Q: Do either of these classes below violate the Principle of Least Knowledge? **
+**Q: Do either of these classes below violate the Principle of Least Knowledge?**
 
 ![image alt text](image_35.png)
 
@@ -286,11 +308,15 @@ Well, if we were to do that, then we’d be making a request of another object�
 
 **A: **How about System.out.println()? 
 
+<br>
+
 **Facade Pattern & The Principle of least knowledge**
 
 ![image alt text](image_36.png)
 
-**Comparing the Decorator & Adapter & Facade**
+<br>
+
+### Comparing the Decorator & Adapter & Facade
 
 **An adapter wraps an object to change its interface, a decorator wraps an object to add new behaviors and responsibilities, and a facade "wraps" a set of objects to simplify.**
 
@@ -312,7 +338,7 @@ The intent of the Facade Pattern is just to provide a simplified interface to a 
 
 A facade decouples a client from a complex subsystem. 
 
-**Q: Is it correct to say that the adapter wraps one class and the facade may represent many classes? **
+**Q: Is it correct to say that the adapter wraps one class and the facade may represent many classes?**
 
 **A:** No! 
 
