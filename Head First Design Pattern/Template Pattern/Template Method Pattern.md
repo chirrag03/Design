@@ -47,11 +47,9 @@ Likewise, adding sugar and milk is pretty much the same as adding a lemon: both 
 
 <br>
 
-**Meet the Template Method**
+### Meet the Template Method
 
 ![image alt text](image_10.png)
-
-**The Template Method defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.**
 
 The CaffeineBeverage class maximizes reuse among the subclasses.
 
@@ -87,6 +85,7 @@ What’s a template? It’s a method that defines an algorithm as a set of steps
 
 **Hooked on Template Method…**  
 **A hook is a method that is declared in the abstract class, but only given an empty or default implementation.**  
+
 **This gives subclasses the ability to "hook into" the algorithm at various points, if they wish; a subclass is also free to ignore the hook.**
 
 ![image alt text](image_16.png)
@@ -146,7 +145,7 @@ So, they both have the goal of decoupling, but the Dependency Inversion Principl
 
 <br>
 
-**Template Methods in the Wild**  
+### Template Methods in the Wild
 This pattern is a great design tool for creating frameworks, where the framework controls how something gets done, but leaves you (the person using the framework) to specify your own details about what is actually happening at each step of the framework’s algorithm.
 
 ![image alt text](image_22.png)
