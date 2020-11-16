@@ -219,7 +219,7 @@ The classes will land in the current directory (i.e. whatever you did a cd to). 
 
 <br>
 
-**Step four: start the service**
+**Step five: start the service**
 
 ![image alt text](image_32.png)
 
@@ -253,7 +253,7 @@ The client has to get the stub object (our proxy), since that’s the thing the 
 
 **Getting the GumballMachine ready to be a remote service**
 
-1) Create a remote interface for the GumballMachine. This will provide a set of methods that can be called remotely.
+**1) Create a remote interface for the GumballMachine. This will provide a set of methods that can be called remotely.**
 
 ![image alt text](image_39.png)
 
