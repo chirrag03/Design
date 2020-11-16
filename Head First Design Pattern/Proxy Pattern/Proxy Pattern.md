@@ -46,17 +46,14 @@ But what it’s really doing is calling methods on a ‘proxy’ object in local
 
 How do we create a proxy that knows how to invoke a method on an object that lives in another JVM? Well, you can’t get a reference to something on another heap, right? 
 
-![image alt text](image_4.png)
-
+![image alt text](image_4.png)  
 Whatever the variable d is referencing must be in the same heap space as the code running the statement. 
 
-**So how do we approach this?** 
-
+**So how do we approach this?**   
 We’ll take advantage of Java’s built in Remote Method Invocation functionality.   
 ... RMI gives us a way to find objects in a remote JVM and allows us to invoke their methods.
 
-**How Remote Methods work?**
-
+**How Remote Methods work?**  
 Let’s say we want to design a system that allows us to call a local object that forwards each request to a remote object. How would we design it?
 
 The client calls a method on the client helper, as if the client helper were the actual service. The client helper then takes care of forwarding that request for us. 
@@ -94,8 +91,7 @@ RMI also provides all the runtime infrastructure to make it all work, including 
 
 ![image alt text](image_11.png)
 
-**Looking at the Server Side**
-
+### Looking at the Server Side
 Steps needed to transform an ordinary object so that it can accept remote calls (i.e. can be called by a remote client).
 
 We’ll be doing this later to our GumballMachine. 
@@ -117,10 +113,8 @@ It’s the object that the client wants to call methods on (e.g., our GumballMac
 
 ![image alt text](image_11_2.png)
 
-These are client and server ‘helpers’. 
-
-You don’t have to create these classes. 
-
+These are client and server ‘helpers’.   
+You don’t have to create these classes.   
 It’s all handled automatically when you run the rmic tool that ships with your Java development kit.
 
 **4) Start the RMI registry (rmiregistry)**  
@@ -136,6 +130,8 @@ The rmiregistry is like the white pages of a phone book. It’s where the client
 You have to get the service object up and running. 
 
 Your service implementation class instantiates an instance of the service and registers it with the RMI registry. Registering it makes the service available for clients.
+
+<br>
 
 **Step one: make a Remote interface**
 
@@ -286,6 +282,8 @@ The client has to get the stub object (our proxy), since that’s the thing the 
 ![image alt text](image_44.png)
 
 **NOTE: Here we didn’t use rmic to generate the stub and skeleton. You’ll this at the end of chapter.**
+
+<br> 
 
 **Now for the GumballMonitor client…**  
 
@@ -440,7 +438,7 @@ There is one additional similarity that relates to the Protection Proxy. A Prote
 ![image alt text](image_70.png)
 
 **The way our PersonBean is defined, any client can call any of the methods. It has 2 problems:**  
-* **You shouldn’t be able to give yourself a rating.  **  
+* **You shouldn’t be able to give yourself a rating.**  
 * **You shouldn’t be able to change another customer’s data (like their interests)**  
 
 **This is a perfect example of where we might be able to use a Protection Proxy.**
@@ -532,8 +530,8 @@ Think about it: before your code runs there is no proxy class; it is created on 
 **Q: Is there any way to tell if a class is a Proxy class?**  
 **A:** Yes. The Proxy class has a static method called isProxyClass(). Calling this method with a class will return true if the class is a dynamic proxy class. Other than that, the proxy class will act like any other class that implements a particular set of interfaces.
 
-**Q: Are there any restrictions on the types of interfaces I can pass into newProxyInstance()? **  
-**A:** Yes, there are a few minor nuances in javadocs, but here are a few major ones:  
+**Q: Are there any restrictions on the types of interfaces I can pass into newProxyInstance()?**    
+**A:** Yes, there are a few minor nuances in javadocs, but here are a few major ones:   
 * We always need to pass newProxyInstance() an array of interfaces – only interfaces are allowed, no classes.   
 * All non-public interfaces need to be from the same package.  
 * You also can’t have interfaces with clashing method signature.   
