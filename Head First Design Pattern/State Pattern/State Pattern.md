@@ -1,6 +1,6 @@
-### State Pattern
+# State Pattern
 
-**Problem Statement**
+### Problem Statement
 
 Here’s the way a gumball machine needs to work. 
 
@@ -74,11 +74,11 @@ Encapsulate state objects in their own classes and then delegate to the current 
 
 ![image alt text](image_17.png)
 
-**Implementing our State classes**
+### Implementing our State classes
 
 ![image alt text](image_22.png)
 
-**Reworking the Gumball Machine**
+### Reworking the Gumball Machine
 
 ![image alt text](image_23.png)
 
@@ -104,7 +104,7 @@ Encapsulate state objects in their own classes and then delegate to the current 
 
 ![image alt text](image_28.png)
 
-**The State Pattern defined**
+### The State Pattern defined
 
 ![image alt text](image_29.png)
 
@@ -124,7 +124,7 @@ In reality, however, you know that we are using composition to give the appearan
 * **The Context gets its behavior by delegating to the current state object it is composed with.**  
 * **By encapsulating each state into a class, we localize any changes that will need to be made.**
 
-**Comparing Strategy & State**
+### Comparing Strategy & State
 
 The class diagrams of the two patterns are similar, but they differ in their intent. 
 
@@ -213,7 +213,7 @@ The downside is, of course, that now you’ve got TWO states represented in one 
 
 By putting the WinnerState responsibility into the SoldState, you’ve just given the SoldState TWO responsibilities and violated One class, One responsibility principle. What happens when the promotion ends? Or the stakes of the contest change? So, it’s a tradeoff and comes down to a design decision. 
 
-**Refilling the Gumball machine**  
+### Refilling the Gumball machine  
 Write the refill() method for the Gumball machine. It takes the number of gumballs you’re adding as one argument, and should update the gumball machine count and reset the machine’s state.
 
 ![image alt text](image_36.png)
