@@ -27,7 +27,7 @@ Writing classes to prepare coffee and tea, given their recipes used by StarBuzz 
 
 So, can we find a way to abstract prepareRecipe() too? Yes, let’s find out…
 
-![image alt text](image_3.png)![image alt text](image_4.png)
+![image alt text](image_3.png)
 
 Let’s think through this: steeping and brewing aren’t so different; they’re pretty analogous. So let’s make a new method name, say, brew(), and we’ll use the same name whether we’re brewing coffee or steeping tea. 
 
