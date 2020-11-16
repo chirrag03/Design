@@ -112,7 +112,7 @@ Another use is to give the subclass a chance to react to some step in the templa
 
 <br>
 
-**The Hollywood Principle**
+### The Hollywood Principle
 
 ![image alt text](image_19_0.png)
 
