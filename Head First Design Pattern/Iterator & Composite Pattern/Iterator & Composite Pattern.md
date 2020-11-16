@@ -126,7 +126,8 @@ We just need to give the Menus a common interface and rework the Waitress a litt
 
 ![image alt text](image_22.png)
 
-**Solved 2 problems**
+**Solved 2 problems**  
+
 ![image alt text](image_22_0.png)
 
 ![image alt text](image_23.png)
@@ -260,6 +261,8 @@ We need to make the dessert menu an element of the DinerMenu collection, but tha
 **→ We may need to be able to traverse the items in a more flexible manner.**
 
 **For instance: We might need to iterate over only the Diner’s dessert menu, or we might need to iterate over the Diner’s entire menu, including the dessert submenu.**
+
+![image alt text](image_42_0.png)
 
 ### The Composite Pattern defined
 
