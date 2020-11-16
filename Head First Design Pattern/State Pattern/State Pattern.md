@@ -84,7 +84,13 @@ Encapsulate state objects in their own classes and then delegate to the current 
 
 ![image alt text](image_24.png)
 
+![image alt text](image_24_0.png)
+
 **Implementing more states**
+
+![image alt text](image_24_1.png)
+
+![image alt text](image_24_2.png)
 
 ![image alt text](image_25.png)
 
