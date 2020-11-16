@@ -20,7 +20,7 @@ So we actually have five transitions from one state to another and in total four
 
 *** Also, don’t forget that user could do nonsensical things, like trying to eject the quarter when the gumball machine is in the "No Quarter" state, or insert two quarters.
 
-** From state diagram to actual code**
+### From state diagram to actual code
 
 ![image alt text](image_1.png)
 
