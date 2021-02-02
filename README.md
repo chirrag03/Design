@@ -1,4 +1,8 @@
 # Design
 
-#### - Head First Design Pattern folder contains Notes for basic design patterns from the book Head first Design Pattern 
-#### - Object Oriented Design folder contains Low Level Designs for some real life scenarios
+The contents of the folders in this repository are mentioned below:
+#### - Head First Design Pattern
+Notes summarizing the basic design patterns from the book Head first Design Pattern by Eric Freeman, Elisabeth Robson, Bert Bates, Kathy Sierra.
+
+#### - Object Oriented Design
+Low Level Designs for some real life scenarios
