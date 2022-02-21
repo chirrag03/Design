@@ -39,11 +39,11 @@ class Floor{
     int totalTruckSlots;
     int totalMotoSlots;
     Map<VehicleType, Array<Slots>> slots;
-    Map<VehicleType, PriorityQueue<Slots>> emptySlots;
+    Map<VehicleType, PriorityQueue<Slots>> unassignedSlots;
 
-    assignIfEmpty(Vehicle){
+    assignVehicleIfEmptySlot(Vehicle){
         //Remove fromEmptySlot and assign a lost.
-        PriorityQueue<Slots> slots = emptySlots.get(vehicle.vehicleType);
+        PriorityQueue<Slots> slots = unassignedSlots.get(vehicle.vehicleType);
         if(!slots.isEmpty()){
           Slot slot = slots.poll();
           return slot;
@@ -52,12 +52,12 @@ class Floor{
     };
 
 
-    addToEmpty(Slot) {
+    addSlotToUnassignedSlots(Slot) {
         slot.vehicle = null;
         // slot updated
-        PriorityQueue<Slots> slots = emptySlots.get(slot.vehicleType);
+        PriorityQueue<Slots> slots = unassignedSlots.get(slot.vehicleType);
         slots.add(slot);
-        emptySlots.put(slot.vehicleType, slots);	
+        unassignedSlots.put(slot.vehicleType, slots);	
     }
 
 }
@@ -75,7 +75,7 @@ class ParkingLot{
     addVehicle(Vehicle){
         Boolean assigned = false;
         for(floor:Floors){
-          Slot slot = floor.assignIfEmpty(Vehicle);
+          Slot slot = floor.assignVehicleIfEmptySlot(Vehicle);
           if(slot != null) {
               assigned = true;
               slotVehicleMapping.put(vehicle.getRegistrationNumber(), slot);
@@ -91,7 +91,7 @@ class ParkingLot{
             // car not present
         } else {
             slotVehicleMapping.remove(registrationNumber);
-            floor[slot.floorNumber].addToEmpty(slot);
+            floor[slot.floorNumber].addSlotToUnassignedSlots(slot);
         }
     }
 
