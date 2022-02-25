@@ -36,6 +36,49 @@ class Lift{
        //Move in the required direction and keep updating the currentFloor and direction
 
        //If the lift changes direction then do a callback on the controller
+       
+       while(true){
+        if(state.direction == Direction.IDLE){
+        
+          if(!minHeap.isEmpty()){
+            state.currentFloor = Direction.UP;
+            controller.callback(this, Direction.IDLE, Direction.UP);
+          }else{
+            state.currentFloor = Direction.DOWN;
+            controller.callback(this, Direction.IDLE, Direction.DOWN);
+          }
+          
+        }else if(state.direction == Direction.UP){
+        
+          while(!minHeap.isEmpty()){
+            Integer nextFloor = minHeap.poll();
+            state.currentFloor = nextFloor;
+          }
+
+          if(!maxHeap.isEmpty()){
+            controller.callback(this, Direction.UP, Direction.DOWN);
+          }else{
+            controller.callback(this, Direction.UP, Direction.IDLE);
+            break;
+          }
+          
+        } else if(state.direction == Direction.DOWN){
+        
+          while(!maxHeap.isEmpty()){
+            Integer nextFloor = minHeap.poll();
+            state.currentFloor = nextFloor;
+          }
+
+          if(!minHeap.isEmpty()){
+            controller.callback(this, Direction.DOWN, Direction.UP);
+          }else{
+            controller.callback(this, Direction.DOWN, Direction.IDLE);
+            break;
+          }
+        } 
+        
+      }
+      
     }
 }
 
