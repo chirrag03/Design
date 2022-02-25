@@ -40,7 +40,8 @@ class Lift{
        while(true){
         if(state.direction == Direction.IDLE){
         
-          if(!minHeap.isEmpty()){
+          if(){
+            // closest floor in the two heaps is above current floor
             state.direction = Direction.UP;
             controller.callback(this, Direction.IDLE, Direction.UP);
           }else{
