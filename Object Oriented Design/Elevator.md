@@ -41,10 +41,10 @@ class Lift{
         if(state.direction == Direction.IDLE){
         
           if(!minHeap.isEmpty()){
-            state.currentFloor = Direction.UP;
+            state.direction = Direction.UP;
             controller.callback(this, Direction.IDLE, Direction.UP);
           }else{
-            state.currentFloor = Direction.DOWN;
+            state.direction = Direction.DOWN;
             controller.callback(this, Direction.IDLE, Direction.DOWN);
           }
           
